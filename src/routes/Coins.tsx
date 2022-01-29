@@ -19,7 +19,7 @@ margin-bottom: 20px;
 `;
 const CoinList = styled.ul``;
 const Coin = styled.li`
-background-color: white;
+background-color:${props => props.theme.liColor};
 color:${props => props.theme.bgColor};
 padding: 20px;
 margin-bottom: 10px;
@@ -57,7 +57,11 @@ interface ICoin {
     type: string,
 }
 
-function Coins(){
+interface ICoinsProps {
+    toggleDark : () => void;
+}
+
+function Coins({toggleDark}:ICoinsProps){
   /*  const [coins, setCoins] = useState<CoinInterface[]>([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
@@ -78,6 +82,7 @@ function Coins(){
         </Helmet>
             <Header>
                 <Title>Coins</Title>
+                <button onClick={toggleDark}>Toggle Dark Mode</button>
             </Header>
           {isLoading ? "Loading..."  : (<CoinList>
                {data?.slice(0,50).map((coin)=>(

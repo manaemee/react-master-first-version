@@ -137,7 +137,7 @@ function Coin(){
         </Helmet>
         <Header>
      
-            <Link to="/">
+            <Link to="/react-master-first-version">
                 <HomeButton>
                 <FontAwesomeIcon icon={faHome} />
                 </HomeButton>

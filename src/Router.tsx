@@ -3,12 +3,17 @@ import Coins from "./routes/Coins";
 import Coin from "./routes/Coin";
 
 
-function Router(){
+interface IRouterProps {
+    toggleDark: () => void;
+}
+
+
+function Router({toggleDark}: IRouterProps){
 return (<BrowserRouter>
     <Routes>
         <Route path="/:coinId/*" element={ <Coin/>}>
         </Route>
-        <Route path={`${process.env.PUBLIC_URL}/`}  element={<Coins/>}>
+        <Route path={`${process.env.PUBLIC_URL}/`} toggleDark={toggleDark} element={<Coins/>}>
         </Route>
     </Routes>
 </BrowserRouter>)
